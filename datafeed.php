@@ -137,19 +137,73 @@ class DataInsert {
     }
 }
 
-try {
-    $pdoConnection = new DatabaseConnection(DB_TYPE, DB_HOST);
-    $parser = new DataParser(DOWNLOAD_DIR);
-    $items = $parser->parseItems();
-    $insert = new DataInsert($pdoConnection);
-    
-    //Insert each array into database
-    foreach($items as $item) {
-        $insertId = $insert->insert(DB_TABLENAME, $item);
+// Command line interface
+class CommandLineInterface
+{
+    private $filePath;
+    private $table;
+    private $dbType;
+    private $dbPath;
+    private $username;
+    private $password;
+
+    public function __construct($argv)
+    {
+        // Parsing command line arguments
+        $this->parseArguments($argv);
+
+        // Database connection
+        $dbConnection = new DatabaseConnection($this->dbType, $this->dbPath,$this->username, $this->password);
+
+        // Data parsing
+        $dataParser = new DataParser($this->filePath);
+        $items = $dataParser->parseItems();
+
+        // Data insertion
+        $dataInsert = new DataInsert($dbConnection);
+        foreach ($items as $item) {
+            $dataInsert->insert($this->table, $item);
+        }
+        echo "completed";
     }
 
-    echo "completed";
-    
-} catch (Exception $e) {
-    error_log("Error: " . $e->getMessage());
+    private function parseArguments($argv)
+    {
+        // Skip the first argument which is the script name
+        array_shift($argv);
+
+        // Iterate through each argument
+        foreach ($argv as $arg) {
+            $parts = explode('=', $arg);
+            $key = $parts[0];
+            $value = $parts[1];
+
+            switch ($key) {
+                case '--file':
+                    $this->filePath = $value;
+                    break;
+                case '--table':
+                    $this->table = $value;
+                    break;
+                case '--db-type':
+                    $this->dbType = $value;
+                    break;
+                case '--db-path':
+                    $this->dbPath = $value;
+                    break;
+                case '--username':
+                    $this->username = $value;
+                    break;
+                case '--password':
+                    $this->password = $value;
+                    break;
+                default:
+                    // Invalid argument, do nothing or handle accordingly
+                    break;
+            }
+        }
+    }
 }
+
+// Run the command line interface
+new CommandLineInterface($argv);
