@@ -84,12 +84,19 @@ Description:
     establishing a database connection, parsing data from a file, and inserting the parsed data into the database.
 
 Properties:
+
     - $filePath: string (The path to the input file containing data to be parsed and inserted into the database.)
+    
     - $table: string (The name of the database table where the parsed data will be inserted.)
+    
     - $dbType: string (The type of the database (e.g., mysql, sqlite).)
+    
     - $dbPath: string (The database connection string or path to the database file.)
+    
     - $username: string|null (The username for connecting to the database. Null if not required.)
+    
     - $password: string|null (The password for connecting to the database. Null if not required.)
+    
 
 Methods:
     + __construct(array $argv)
