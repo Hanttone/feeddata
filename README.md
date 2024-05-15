@@ -1,5 +1,15 @@
 # Data Feed Documentation
 
+**Configuration File Documentation**
+
+    DB_HOST: Path or hostname of the database file.
+    DB_TYPE: Type of database used (e.g., SQLite).
+    DB_USER: Username for accessing the database (NULL for SQLite).
+    DB_PASS: Password for accessing the database (NULL for SQLite).
+    DOWNLOAD_DIR: Directory path where the feed file is located.
+    DB_TABLENAME: Name of the table in the database.
+    ERROR_LOG_PATH: Path where error logs will be stored.
+
 **Database Connection Handling (DatabaseConnection)**
 
 Description:
