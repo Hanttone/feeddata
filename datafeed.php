@@ -138,8 +138,7 @@ class DataInsert {
 }
 
 // Command line interface
-class CommandLineInterface
-{
+class CommandLineInterface {
     private $filePath;
     private $table;
     private $dbType;
@@ -147,8 +146,13 @@ class CommandLineInterface
     private $username;
     private $password;
 
-    public function __construct($argv)
-    {
+    public function __construct($argv) {
+        $filePath = DONWLOAD_DIR;
+        $table = DATABASE_TABLENAME;
+        $dbType = DB_TYPE;
+        $dbPath = DB_HOST;
+        $userName = ;
+        $password = ;
         // Parsing command line arguments
         $this->parseArguments($argv);
 
@@ -167,8 +171,7 @@ class CommandLineInterface
         echo "completed";
     }
 
-    private function parseArguments($argv)
-    {
+    private function parseArguments($argv) {
         // Skip the first argument which is the script name
         array_shift($argv);
 
