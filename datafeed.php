@@ -139,23 +139,16 @@ class DataInsert {
 
 // Command line interface
 class CommandLineInterface {
-    private $filePath;
-    private $table;
-    private $dbType;
-    private $dbPath;
-    private $username;
-    private $password;
+    //Initializing variables with config information in case nothing is sent from command line
+    private $filePath = DOWNLOAD_DIR;
+    private $table = DB_TABLENAME;
+    private $dbType = DB_TYPE;
+    private $dbPath = DB_HOST;
+    private $username = DB_USER;
+    private $password = DB_PASS;
 
     public function __construct($argv) {
-        
-        //Initializing variables with config information in case nothing is sent from command line
-        $filePath = DONWLOAD_DIR;
-        $table = DB_TABLENAME;
-        $dbType = DB_TYPE;
-        $dbPath = DB_HOST;
-        $userName = DB_USER;
-        $password = DB_PASS;
-        
+    
         // Parsing command line arguments
         $this->parseArguments($argv);
 
