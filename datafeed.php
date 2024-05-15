@@ -150,7 +150,7 @@ class CommandLineInterface {
         
         //Initializing variables with config information in case nothing is sent from command line
         $filePath = DONWLOAD_DIR;
-        $table = DATABASE_TABLENAME;
+        $table = DB_TABLENAME;
         $dbType = DB_TYPE;
         $dbPath = DB_HOST;
         $userName = DB_USER;
