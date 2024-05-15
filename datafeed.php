@@ -147,12 +147,15 @@ class CommandLineInterface {
     private $password;
 
     public function __construct($argv) {
+        
+        //Initializing variables with config information in case nothing is sent from command line
         $filePath = DONWLOAD_DIR;
         $table = DATABASE_TABLENAME;
         $dbType = DB_TYPE;
         $dbPath = DB_HOST;
-        $userName = ;
-        $password = ;
+        $userName = DB_USER;
+        $password = DB_PASS;
+        
         // Parsing command line arguments
         $this->parseArguments($argv);
 
@@ -168,6 +171,7 @@ class CommandLineInterface {
         foreach ($items as $item) {
             $dataInsert->insert($this->table, $item);
         }
+        
         echo "completed";
     }
 
