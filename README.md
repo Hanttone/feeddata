@@ -39,6 +39,7 @@ Methods:
         Closes the database connection.
 
 **Data Parsing (DataParser)**
+
 Description:
 
 This class parses data from various file formats (XML, JSON, CSV).
@@ -57,6 +58,7 @@ Methods:
         Parses items from the data file and returns an array of parsed items.
 
 **Creating Insert Statements and Entering Data to Database (DataInsert)**
+
 Description:
 
 This class creates insert statements and enters data into the database table.
