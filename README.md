@@ -62,3 +62,37 @@ Methods:
         Inserts data into the specified table in the database.
         Creates the table if it doesn't exist and defines column names based on the data.
         Executes the insert statement and returns the last inserted ID.
+
+**Class CommandLineInterface**
+
+Description:
+    This class represents the command line interface for the PHP program. It handles parsing command line arguments,
+    establishing a database connection, parsing data from a file, and inserting the parsed data into the database.
+
+Properties:
+    - $filePath: string (The path to the input file containing data to be parsed and inserted into the database.)
+    - $table: string (The name of the database table where the parsed data will be inserted.)
+    - $dbType: string (The type of the database (e.g., mysql, sqlite).)
+    - $dbPath: string (The database connection string or path to the database file.)
+    - $username: string|null (The username for connecting to the database. Null if not required.)
+    - $password: string|null (The password for connecting to the database. Null if not required.)
+
+Methods:
+    + __construct(array $argv)
+        Description:
+            Constructor method for the CommandLineInterface class.
+            Initializes the CommandLineInterface object and parses command line arguments.
+
+        Parameters:
+            - $argv: array (The array of command line arguments passed to the script.)
+
+    - parseArguments(array $argv): void
+        Description:
+            Parses the command line arguments and sets the corresponding properties.
+
+        Parameters:
+            - $argv: array (The array of command line arguments passed to the script.)
+
+    Note:
+        The CommandLineInterface class automatically establishes a database connection, parses data from the input file,
+        and inserts the parsed data into the database upon instantiation.
