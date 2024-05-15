@@ -10,6 +10,8 @@
     DB_TABLENAME: Name of the table in the database.
     ERROR_LOG_PATH: Path where error logs will be stored.
 
+--------------------------------------------------------------------------------------------------------------------------------
+
 **Database Connection Handling (DatabaseConnection)**
 
 Description:
